@@ -1,5 +1,5 @@
 import redis
-redcon = redis.StrictRedis(host='localhost', port=6379, db=11, charset="utf-8", decode_responses=True)
+redcon = redis.StrictRedis(host='localhost', port=6379, db=11, decode_responses=True)
 
 output = '---\n'
 output += 'layout: page\n'
@@ -42,7 +42,8 @@ for repository in sorted(redcon.smembers('repositories')):
     output += "| username | total commits |\n"
     output += "|:--------:|:-------------:|\n"
     for top in redcon.zrevrange('r:{}'.format(repository), 0, -1, withscores=True):
-        output += "|[{}]({}{})|{}|\n".format(top[0],url_user,top[0],top[1])
+        output += "|[{}]({}{})|{}|\n".format(top[0],url_user,top[0],int(top[1]))
     output += "\n"
 
-print (output)
+# print (output)
+with open("contributors.md", "w") as write_file:    write_file.write(output)

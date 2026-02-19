@@ -1,0 +1,14 @@
+[
+    "cakephp",
+    "cti-python-stix2",
+    "nginx-proxy",
+    "MISP-STIX-Converter",
+    "MISP-Taxii-Server",
+    "docker-misp",
+    "MISP-sizer",
+    "cti-toolkit",
+    "misp-packer",
+    "misp-search",
+    "misp-vagrant",
+    "misp-contributors"
+]
